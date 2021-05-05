@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RU1HzOamMeakPoTHcDygm/+9Dxs8VHzYaHMbsy4OqooCKIUXj32/gvlXnK+QY84Hqt8U76G6e9gjpwAmBWUMtw==",
+  "success": true,
+  "projectFilePath": "E:\\Open Window\\DV 300 Interactive Development\\Term 2\\MinecraftInventoryTracker\\MinecraftInventoryTracker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\noahe\\.nuget\\packages\\htmlagilitypack\\1.11.33\\htmlagilitypack.1.11.33.nupkg.sha512"
+  ],
+  "logs": []
+}
