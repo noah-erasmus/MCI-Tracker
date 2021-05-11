@@ -30,10 +30,10 @@ namespace MinecraftInventoryTracker
             HtmlNode itemNode = htmlDoc.GetElementbyId("table-body");
             Console.WriteLine(itemNode.OuterHtml);
 
-            string[] blockList = {"bedrock", "melon", "grass-block"};
+            string[] blockList = {"Bedrock", "Melon", "Grass Block", "Cobblestone", "Sand", "Dirt", "Leaves"};
 
             foreach(string blockEntry in blockList){
-                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><div class='block-row is-flex columns is-flex-direction-row'><div class='block-image column'><figure class='image is-96x96'><img src='img/grass-block.png' alt='block-image'></figure></div><div class='block-name column'><h4 class='title is-4'>"+blockEntry+"</h4></div><div class='block-hardness column'><p>0.5</p></div><div class='block-craftable column'><p>No</p></div><div class='block-quantity column'><p>1</p></div></div></div>");
+                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column'><figure class='image is-96x96'><img src='img/grass-block.png' alt='block-image'></figure></div><div class='block-name column'><h5 class='title is-5'>"+blockEntry+"</h5></div><div class='block-hardness column'><p>0.5</p></div><div class='block-craftable column'><p>No</p></div><div class='block-quantity column'><p>1</p></div></div></div>");
                 itemNode.AppendChild(newNode);
             }
             
