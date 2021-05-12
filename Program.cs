@@ -114,6 +114,20 @@ namespace MinecraftInventoryTracker
 
         static void Main(string[] args)
         {
+            Block myBlock = new Block(1);
+            Block grassBlock = new GrassBlock(1);
+            Block dirtBlock = new DirtBlock(1);
+            Block coal1 = new Coal(1);
+            Coal coal2 = new Coal(1);
+
+            Console.WriteLine(grassBlock.BlockType);
+            Console.WriteLine(dirtBlock.BlockType);
+
+            grassBlock.Place();
+            dirtBlock.Place();
+            coal1.Place();
+            coal2.Place();      
+
             listener = new HttpListener();
             listener.Prefixes.Add(url);
             listener.Start();

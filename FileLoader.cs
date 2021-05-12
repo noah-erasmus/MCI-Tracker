@@ -25,6 +25,7 @@ namespace MinecraftInventoryTracker
                 case ".css": mimeType = "text/css"; break;
                 case ".js": mimeType = "text/javascript"; break;
                 case ".png": mimeType = "image/png"; break;
+                case ".ico": mimeType = "image/ico"; break;
             }
         }
 
