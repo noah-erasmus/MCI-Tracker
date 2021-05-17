@@ -112,11 +112,12 @@ namespace MinecraftInventoryTracker
         }
 
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Block myBlock = new Block(1);
             Block grassBlock = new GrassBlock(1);
             Block dirtBlock = new DirtBlock(1);
+            SandBlock sandBlock = new SandBlock(1);
+            sandBlock.Melt();
             Block coal1 = new Coal(1);
             Coal coal2 = new Coal(1);
 

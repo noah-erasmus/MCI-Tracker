@@ -7,5 +7,11 @@ namespace MinecraftInventoryTracker{
         public DirtBlock(int newCount): base(newCount){
             blockType = "Dirt Block";
         }
+
+        public override void Place()
+        {
+            Count--;
+            Console.WriteLine("Dirt block has been placed.");
+        }
     }
 }

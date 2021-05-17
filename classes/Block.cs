@@ -2,7 +2,7 @@ using System;
 
 namespace MinecraftInventoryTracker
 {
-    class Block{
+    abstract class Block{
         private int count;
         protected string blockType;
 
@@ -29,9 +29,6 @@ namespace MinecraftInventoryTracker
             count = newCount;
         }
 
-        public virtual void Place(){
-            count--;
-            Console.WriteLine("Block placed.");
-        }
+        public abstract void Place();
     }
 }
