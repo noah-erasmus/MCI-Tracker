@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Net;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace MinecraftInventoryTracker
 {
@@ -114,20 +115,12 @@ namespace MinecraftInventoryTracker
 
         public static void Main(string[] args)
         {
-            Block grassBlock = new GrassBlock(1);
-            Block dirtBlock = new DirtBlock(1);
-            SandBlock sandBlock = new SandBlock(1);
-            sandBlock.Melt();
-            Block coal1 = new Coal(1);
-            Coal coal2 = new Coal(1);
-
-            Console.WriteLine(grassBlock.BlockType);
-            Console.WriteLine(dirtBlock.BlockType);
-
-            grassBlock.Place();
-            dirtBlock.Place();
-            coal1.Place();
-            coal2.Place();      
+            Inventory inventory = new Inventory();
+            // ArrayList array = inventory.Items;
+            RecipeBook.Populate();
+            foreach(Recipe curRecipe in RecipeBook.Recipes){
+                Console.WriteLine(curRecipe.Result.BlockType);
+            }
 
             listener = new HttpListener();
             listener.Prefixes.Add(url);
