@@ -6,6 +6,9 @@ namespace MinecraftInventoryTracker{
 
         public CobblestoneBlock(int newCount): base(newCount){
             blockType = "Cobblestone Block";
+            classType = this;
+            image = "cobblestone-block.png";
+            hardness = "2";
         }
         
         public override void Place()

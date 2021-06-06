@@ -6,6 +6,8 @@ namespace MinecraftInventoryTracker
         private int count;
         protected string blockType;
         protected static Block classType;
+        protected string image;
+        protected string hardness;
 
         public int Count{
             get{
@@ -24,6 +26,17 @@ namespace MinecraftInventoryTracker
         public string BlockType{
             get{
                 return blockType;
+            }
+        }
+        public string Hardness{
+            get{
+                return hardness;
+            }
+        }
+
+        public string Image{
+            get{
+                return image;
             }
         }
 

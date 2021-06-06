@@ -28,11 +28,13 @@ namespace MinecraftInventoryTracker{
             var map = new Dictionary<string,int>();
 
             foreach(Block curBlock in inputs){
-                int count;
-                if(map.TryGetValue(curBlock.BlockType, out count)){
-                    map[curBlock.BlockType] += 1;
-                }else{
-                    map.Add(curBlock.BlockType, 1);
+                if(curBlock != null){
+                    int count;
+                    if(map.TryGetValue(curBlock.BlockType, out count)){
+                        map[curBlock.BlockType] += 1;
+                    }else{
+                        map.Add(curBlock.BlockType, 1);
+                    }
                 }
             }
 

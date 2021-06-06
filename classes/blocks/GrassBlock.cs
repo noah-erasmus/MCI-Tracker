@@ -6,6 +6,9 @@ namespace MinecraftInventoryTracker{
 
         public GrassBlock(int newCount): base(newCount){
             blockType = "Grass Block";
+            classType = this;
+            image = "grass-block.png";
+            hardness = "0.6";
         }
         
         public override void Place()

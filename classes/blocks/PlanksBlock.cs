@@ -6,6 +6,8 @@ namespace MinecraftInventoryTracker{
         public Planks(int newCount): base(newCount){
             blockType = "Planks block";
             classType = this;
+            image = "planks-block.png";
+            hardness = "2";
         }
 
         public override void Place(){

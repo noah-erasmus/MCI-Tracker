@@ -134,6 +134,14 @@ namespace MinecraftInventoryTracker
             // {null,Inventory.GetClass("Stick"),null}});
             // RecipeBook.AddRecipe(woodPickaxeRecipe);
 
+            // ArrayList newItems = Inventory.Items;
+            // foreach (Block currentBlock in newItems){
+            //     HtmlNode newNode = HtmlNode.CreateNode("<li>" + currentBlock.BlockType + "</li>");
+
+            // }
+
+
+
             Inventory.GetClass("Wood Block").Count++;
             Console.WriteLine("woodblock " + Inventory.GetCount("Wood Block"));
 

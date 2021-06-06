@@ -6,6 +6,8 @@ namespace MinecraftInventoryTracker{
         public WoodPickaxe(int newCount): base(newCount){
             blockType = "Wood Pickaxe";
             classType = this;
+            image = "wood-pickaxe.png";
+            hardness = "59";
         }
 
         public override void Place(){

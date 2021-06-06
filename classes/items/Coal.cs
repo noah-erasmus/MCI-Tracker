@@ -4,7 +4,10 @@ namespace MinecraftInventoryTracker{
 
     class Coal: Block{
         public Coal(int newCount): base(newCount){
-            blockType = "Coal resource";
+            blockType = "Coal";
+            classType = this;
+            image = "coal.png";
+            hardness = "n/a";
         }
 
         public override void Place(){

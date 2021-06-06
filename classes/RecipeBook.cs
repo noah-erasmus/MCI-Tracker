@@ -45,5 +45,12 @@ namespace MinecraftInventoryTracker{
                 }
             }
         }
+
+        // public static void CheckViable(){
+        //     Recipe selectedRecipe = null;
+        //     foreach(Recipe curRecipe in recipes){
+                
+        //     }
+        // }
     }
 }

@@ -5,6 +5,9 @@ namespace MinecraftInventoryTracker{
     class SandBlock: Block, Meltable{
         public SandBlock(int newCount): base(newCount){
             blockType = "Sand Block";
+            classType = this;
+            image = "sand-block.png";
+            hardness = "0.5";
         }
 
         public override void Place(){

@@ -50,7 +50,7 @@ namespace MinecraftInventoryTracker{
             return -1;
         }
 
-        public ArrayList Items{
+        public static ArrayList Items{
             get{
                 return items;
             }
