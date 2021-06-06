@@ -1,19 +1,16 @@
 using System;
 
 namespace MinecraftInventoryTracker{
-
-    class WoodBlock: Block{
+    class WoodAxe: Block, Crafted{
         private Recipe recipe;
-
-        public WoodBlock(int newCount): base(newCount){
-            blockType = "Wood Block";
+        public WoodAxe(int newCount): base(newCount){
+            blockType = "Wood Axe";
             classType = this;
         }
 
-        public override void Place()
-        {
+        public override void Place(){
             Count--;
-            Console.WriteLine("Wood block has been placed.");
+            Console.WriteLine("Wood axe has been placed.");
         }
 
         public Recipe GetRecipe(){

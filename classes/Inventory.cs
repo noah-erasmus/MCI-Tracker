@@ -6,10 +6,28 @@ namespace MinecraftInventoryTracker{
         private static ArrayList items = new ArrayList();
 
         public Inventory(){
-            items.Add(new Coal(4));
-            items.Add(new SandBlock(10));
-            items.Add(new WoodBlock(6));
-            items.Add(new Planks(1));
+            ArrayList data = Database.ReadBlocks();
+            foreach(Tuple<string,int> curTuple in data){
+                Block newBlock;
+                switch(curTuple.Item1){
+                    case "Wood block":
+                        newBlock = new WoodBlock(curTuple.Item2);
+                        break;
+                    case "Stick":
+                        newBlock = new Stick(curTuple.Item2);
+                        break;
+                    case "Wood Axe":
+                        newBlock = new WoodAxe(curTuple.Item2);
+                        break;
+                    case "Wood Pickaxe":
+                        newBlock = new WoodPickaxe(curTuple.Item2);
+                        break;
+                    default:
+                        newBlock = null;
+                        break;
+                }
+                items.Add(newBlock);
+            }
         }
 
         public static Block GetClass(string index){
@@ -18,6 +36,7 @@ namespace MinecraftInventoryTracker{
                     return curItem;
                 }
             }
+            // throw new Exception("block not found" + index);
 
             return null;
         }
@@ -28,7 +47,6 @@ namespace MinecraftInventoryTracker{
                     return curItem.Count;
                 }
             }
-
             return -1;
         }
 

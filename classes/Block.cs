@@ -17,6 +17,7 @@ namespace MinecraftInventoryTracker
                 }else{
                     count = value;
                 }
+                Database.UpdateBlockCount(blockType, count);
             }
         }
 

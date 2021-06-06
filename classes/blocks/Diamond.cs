@@ -2,18 +2,18 @@ using System;
 
 namespace MinecraftInventoryTracker{
 
-    class WoodBlock: Block{
+    class Diamond: Block{
         private Recipe recipe;
 
-        public WoodBlock(int newCount): base(newCount){
-            blockType = "Wood Block";
+        public Diamond(int newCount): base(newCount){
+            blockType = "Diamond";
             classType = this;
         }
 
         public override void Place()
         {
             Count--;
-            Console.WriteLine("Wood block has been placed.");
+            Console.WriteLine("Diamond has been placed.");
         }
 
         public Recipe GetRecipe(){

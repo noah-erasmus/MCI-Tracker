@@ -47,6 +47,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.33, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.25, )"
             }
           },
           "imports": [

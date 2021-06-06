@@ -122,6 +122,25 @@ namespace MinecraftInventoryTracker
                 Console.WriteLine(curRecipe.Result.BlockType);
             }
 
+            // Recipe woodAxeRecipe = new Recipe((Crafted)Inventory.GetClass("Wood Axe"), new Block[3,3]
+            // {{Inventory.GetClass("Wood block"),Inventory.GetClass("Wood block"), null},
+            // {Inventory.GetClass("Wood block"),Inventory.GetClass("Stick"), null},
+            // {null,Inventory.GetClass("Stick"),null}});
+            // RecipeBook.AddRecipe(woodAxeRecipe);
+
+            // Recipe woodPickaxeRecipe = new Recipe((Crafted)Inventory.GetClass("Wood Pickaxe"), new Block[3,3]
+            // {{Inventory.GetClass("Wood block"),Inventory.GetClass("Wood block"), Inventory.GetClass("Wood block")},
+            // {null,Inventory.GetClass("Stick"), null},
+            // {null,Inventory.GetClass("Stick"),null}});
+            // RecipeBook.AddRecipe(woodPickaxeRecipe);
+
+            Inventory.GetClass("Wood Block").Count++;
+            Console.WriteLine("woodblock " + Inventory.GetCount("Wood Block"));
+
+            Console.WriteLine("Serve version " + Database.GetVersion());
+
+            Console.WriteLine(Inventory.GetClass("Wood Block").BlockType);
+
             listener = new HttpListener();
             listener.Prefixes.Add(url);
             listener.Start();
