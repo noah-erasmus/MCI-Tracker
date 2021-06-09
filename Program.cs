@@ -36,7 +36,40 @@ namespace MinecraftInventoryTracker
                 Console.WriteLine(req.HttpMethod);
                 Console.WriteLine(req.UserHostName);
                 Console.WriteLine(req.UserAgent);
+                Console.WriteLine("Has entity body: "+req.HasEntityBody);
                 Console.WriteLine();
+
+                Console.WriteLine(Inventory.GetCount("Stick"));
+
+                
+
+                if(req.HasEntityBody){
+                    System.IO.Stream body = req.InputStream;
+                    System.Text.Encoding encoding = req.ContentEncoding;
+                    System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    if(req.ContentType != null){
+                        Console.WriteLine("Client data content type: " + req.ContentType);
+                    }
+                    Console.WriteLine("Client data content length: " + req.ContentLength64);
+                    Console.WriteLine("Start of data:");
+                    string data = reader.ReadToEnd();
+                    Console.WriteLine(data);
+                    Console.WriteLine("End of data:");
+                    body.Close();
+                    reader.Close();
+
+                    string[] properties = data.Split('&');
+                    foreach(string curProperty in properties){
+                        string[] pair = curProperty.Split('=');
+                        string key = pair[0].Replace('+',' ');
+                        if(key == "recipe"){
+                            RecipeBook.ApplyRecipe(pair[1].Replace('+',' '));
+                        }else if(Inventory.GetClass(key) != null){
+                            int value = Int32.Parse(pair[1]);
+                            Inventory.GetClass(key).Count = value;
+                        }
+                    }
+                }
 
                 string path = req.Url.AbsolutePath;
 
@@ -118,9 +151,6 @@ namespace MinecraftInventoryTracker
             Inventory inventory = new Inventory();
             // ArrayList array = inventory.Items;
             RecipeBook.Populate();
-            foreach(Recipe curRecipe in RecipeBook.Recipes){
-                Console.WriteLine(curRecipe.Result.BlockType);
-            }
 
             // Recipe woodAxeRecipe = new Recipe((Crafted)Inventory.GetClass("Wood Axe"), new Block[3,3]
             // {{Inventory.GetClass("Wood block"),Inventory.GetClass("Wood block"), null},
@@ -140,14 +170,7 @@ namespace MinecraftInventoryTracker
 
             // }
 
-
-
-            Inventory.GetClass("Wood Block").Count++;
-            Console.WriteLine("woodblock " + Inventory.GetCount("Wood Block"));
-
             Console.WriteLine("Serve version " + Database.GetVersion());
-
-            Console.WriteLine(Inventory.GetClass("Wood Block").BlockType);
 
             listener = new HttpListener();
             listener.Prefixes.Add(url);

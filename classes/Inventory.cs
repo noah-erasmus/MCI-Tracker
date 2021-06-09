@@ -10,7 +10,7 @@ namespace MinecraftInventoryTracker{
             foreach(Tuple<string,int> curTuple in data){
                 Block newBlock;
                 switch(curTuple.Item1){
-                    case "Wood block":
+                    case "Wood Block":
                         newBlock = new WoodBlock(curTuple.Item2);
                         break;
                     case "Stick":

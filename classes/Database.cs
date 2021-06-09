@@ -80,11 +80,11 @@ namespace MinecraftInventoryTracker{
             using var con = new MySqlConnection(serverConfiguration);
             con.Open();
 
-            string sql = "UPDATE blocks SET count = @count WHERE blockType = @blockType";
+            string sql = "UPDATE blocks SET count = @count WHERE blocktype = @blockType";
             using var cmd = new MySqlCommand(sql, con);
 
             cmd.Parameters.AddWithValue("@count", count);
-            cmd.Parameters.AddWithValue("@blockType", count);
+            cmd.Parameters.AddWithValue("@blockType", blockType);
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();

@@ -32,14 +32,14 @@ namespace MinecraftInventoryTracker
 
             ArrayList newItems = Inventory.Items;
 
-            HtmlNode itemNode = htmlDoc.GetElementbyId("table-body");
+            HtmlNode itemNode = htmlDoc.GetElementbyId("item-list");
             Console.WriteLine(itemNode.OuterHtml);
 
             // string[] blockList = {"Bedrock", "Melon", "Grass Block", "Cobblestone", "Sand", "Dirt", "Leaves"};
 
             foreach(Block blockEntry in newItems){
                 int count = Inventory.GetCount(blockEntry.BlockType);
-                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column'><figure class='image is-96x96'><img src='img/"+blockEntry.Image+"' alt='block-image'></figure></div><div class='block-name column'><h5 class='title is-5'>"+blockEntry.BlockType+"</h5></div><div class='block-hardness column'><p>"+blockEntry.Hardness+"</p></div><div class='block-craftable column'><p>No</p></div><div class='block-quantity column'><p>"+count+"</p></div></div></div>");
+                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column'><figure class='image is-96x96'><img src='img/"+blockEntry.Image+"' alt='block-image'></figure></div><div class='block-name column'><h5 class='title is-5'>"+blockEntry.BlockType+"</h5></div><div class='block-hardness column'><p>"+blockEntry.Hardness+"</p></div><div class='block-quantity column'><input type='text' id='"+blockEntry.BlockType+"' name='"+blockEntry.BlockType+"' value='"+count+"' /></div><div class='column'><button class='button is-dark' blockType='"+blockEntry.BlockType+"' OnClick='Increment'>+</button></div></div></div>");
                 itemNode.AppendChild(newNode);
             }
 
@@ -47,7 +47,7 @@ namespace MinecraftInventoryTracker
 
             foreach(Recipe curRecipe in RecipeBook.Recipes){
                 if(curRecipe.IsViable()){
-                    HtmlNode craftNode = HtmlNode.CreateNode("<div class='box'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column'><figure class='image is-96x96'><img src='img/"+curRecipe.Result.Image+"' alt='block-image'></figure></div><div class='block-name column'><h5 class='title is-5'>"+curRecipe.Result.BlockType+"</h5></div></div></div>");
+                    HtmlNode craftNode = HtmlNode.CreateNode("<div class='box'><form action='./inventory.html' method='POST'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column'><figure class='image is-96x96'><img src='img/"+curRecipe.Result.Image+"' alt='block-image'></figure></div><div class='block-name column'><h5 class='title is-5'>"+curRecipe.Result.BlockType+"</h5></div><div class='column'><input type='hidden' id='applyRecipe' name='recipe' value='"+curRecipe.Result.BlockType+"'><input type='submit' value='Craft'></div></div></form></div>");
                     craftablesNode.AppendChild(craftNode);
                 }
             }
@@ -57,6 +57,10 @@ namespace MinecraftInventoryTracker
             // }
             
             return htmlDoc.DocumentNode.InnerHtml;
+        }
+
+        public static void CraftRecipe(string blockType){
+            RecipeBook.ApplyRecipe(blockType);
         }
 
     }
