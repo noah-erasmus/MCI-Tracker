@@ -1,18 +1,18 @@
 using System;
 
 namespace MinecraftInventoryTracker{
-    class PlanksBlock: Block, Crafted{
+    class WoodHoe: Block, Crafted{
         private Recipe recipe;
-        public PlanksBlock(int newCount): base(newCount){
-            blockType = "Planks Block";
+        public WoodHoe(int newCount): base(newCount){
+            blockType = "Wood Hoe";
             classType = this;
-            image = "planks-block.png";
-            hardness = "2";
+            image = "wood-hoe.png";
+            hardness = "59";
         }
 
         public override void Place(){
             Count--;
-            Console.WriteLine("Planks have been placed");
+            Console.WriteLine("Wood hoe has been placed.");
         }
 
         public Recipe GetRecipe(){

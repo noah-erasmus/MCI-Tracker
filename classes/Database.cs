@@ -54,6 +54,20 @@ namespace MinecraftInventoryTracker{
             return records;
         }
 
+        public static void AddBlock(string blockType){
+            using var con = new MySqlConnection(serverConfiguration);
+            con.Open();
+
+            string sql = "INSERT INTO blocks (blocktype,count) VALUES (@blockType,@count)";
+            using var cmd = new MySqlCommand(sql, con);
+
+            cmd.Parameters.AddWithValue("@blockType", blockType);
+            cmd.Parameters.AddWithValue("@count", 1);
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+        }
+
         public static void AddRecipe(Recipe input){
             using var con = new MySqlConnection(serverConfiguration);
             con.Open();

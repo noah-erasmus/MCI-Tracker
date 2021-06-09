@@ -62,7 +62,9 @@ namespace MinecraftInventoryTracker
                     foreach(string curProperty in properties){
                         string[] pair = curProperty.Split('=');
                         string key = pair[0].Replace('+',' ');
-                        if(key == "recipe"){
+                        if(key == "newBlock"){
+                            Database.AddBlock(pair[1].Replace('+',' '));
+                        }else if(key == "recipe"){
                             RecipeBook.ApplyRecipe(pair[1].Replace('+',' '));
                         }else if(Inventory.GetClass(key) != null){
                             int value = Int32.Parse(pair[1]);
@@ -158,11 +160,11 @@ namespace MinecraftInventoryTracker
             // {null,Inventory.GetClass("Stick"),null}});
             // RecipeBook.AddRecipe(woodAxeRecipe);
 
-            // Recipe woodPickaxeRecipe = new Recipe((Crafted)Inventory.GetClass("Wood Pickaxe"), new Block[3,3]
-            // {{Inventory.GetClass("Wood block"),Inventory.GetClass("Wood block"), Inventory.GetClass("Wood block")},
+            // Recipe woodHoeRecipe = new Recipe((Crafted)Inventory.GetClass("Wood Hoe"), new Block[3,3]
+            // {{Inventory.GetClass("Planks Block"),Inventory.GetClass("Planks Block"), null},
             // {null,Inventory.GetClass("Stick"), null},
             // {null,Inventory.GetClass("Stick"),null}});
-            // RecipeBook.AddRecipe(woodPickaxeRecipe);
+            // RecipeBook.AddRecipe(woodHoeRecipe);
 
             // ArrayList newItems = Inventory.Items;
             // foreach (Block currentBlock in newItems){

@@ -6,13 +6,11 @@ namespace MinecraftInventoryTracker{
         private static ArrayList recipes = new ArrayList();
 
         public static void Populate(){
-            // Recipe planksRecipe = new Recipe((Crafted)Planks.Get(), new Block[2,2]
-            // {{Inventory.GetClass("Wood block"), null},{Inventory.GetClass("Wood block"), null}});
-            // recipes.Add(planksRecipe);
 
             ArrayList records = Database.ReadRecipes();
 
             foreach(Tuple<string, string[,]> curTuple in records){
+                Console.WriteLine(curTuple.Item1);
                 Recipe curRecipe = new Recipe((Crafted)Inventory.GetClass(curTuple.Item1), new Block[3,3]
                 {{Inventory.GetClass(curTuple.Item2[0,0]), Inventory.GetClass(curTuple.Item2[0,1]), Inventory.GetClass(curTuple.Item2[0,2])},
                 {Inventory.GetClass(curTuple.Item2[1,0]),Inventory.GetClass(curTuple.Item2[1,1]),Inventory.GetClass(curTuple.Item2[1,2])},
