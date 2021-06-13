@@ -39,7 +39,7 @@ namespace MinecraftInventoryTracker
 
             foreach(Block blockEntry in newItems){
                 int count = Inventory.GetCount(blockEntry.BlockType);
-                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><form action='./inventory.html' method='POST'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column is-2'><figure class='image is-96x96'><img src='img/"+blockEntry.Image+"' alt='block-image'></figure></div><div class='block-name column is-3'><h5 class='title is-5'>"+blockEntry.BlockType+"</h5></div><div class='block-hardness column'><p>"+blockEntry.Hardness+"</p></div><div class='block-quantity column'><input type='text' id='"+blockEntry.BlockType+"' name='"+blockEntry.BlockType+"' value='"+count+"' /></div><div class='column'><input type='submit' value='Update'></div></div></form></div>");
+                HtmlNode newNode = HtmlNode.CreateNode("<div class='box'><form action='./inventory.html' method='POST'><div class='block-row is-flex columns is-flex-direction-row is-desktop is-vcentered'><div class='block-image column is-2'><figure class='image is-96x96'><img src='img/"+blockEntry.Image+"' alt='block-image'></figure></div><div class='block-name column is-4'><h5 class='title is-5'>"+blockEntry.BlockType+"</h5></div><div class='block-hardness column'><p>"+blockEntry.Hardness+"</p></div><div class='block-quantity column'><input type='text' id='"+blockEntry.BlockType+"' name='"+blockEntry.BlockType+"' value='"+count+"' /></div><div class='column'><input type='submit' value='Submit'></div></div></form></div>");
                 itemNode.AppendChild(newNode);
             }
 
