@@ -21,3 +21,26 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #9b9bff;
   }
+
+input[type=submit]{
+  background-color: #9b9bff;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 10px 25px;
+}
+
+input[type=submit]:hover{
+  background-color: #7171ff;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
